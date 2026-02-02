@@ -1,0 +1,64 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# =========================
+# Virtual Environments
+# =========================
+venv/
+.venv/
+env/
+ENV/
+
+# =========================
+# Environment Variables
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Jupyter / Notebooks
+# =========================
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+# =========================
+# OS / Editor Files
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# =========================
+# Logs & Cache
+# =========================
+*.log
+.cache/
+.mypy_cache/
+.pytest_cache/
+
+# =========================
+# LangChain / LangGraph Artifacts
+# =========================
+langgraph_cache/
+langchain_cache/
+
+# =========================
+# Model / Tool Artifacts
+# =========================
+*.pkl
+*.joblib
+*.bin
+
+# =========================
+# Temporary Files
+# =========================
+tmp/
+temp/
