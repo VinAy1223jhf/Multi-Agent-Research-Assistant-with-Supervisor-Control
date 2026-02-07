@@ -31,7 +31,7 @@ def researcher_agent(state: SupervisorState,llm) -> Dict:
     agent_message = f"🔍 Researcher: I've completed the research on '{task}'.\n\nKey findings:\n{research_data[:500]}..."
     
     return {
-        "messages": [AIMessage(content=agent_message)],
+        
         "research_data": research_data,
         "next_agent": "supervisor"
     }

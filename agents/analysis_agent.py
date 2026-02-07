@@ -35,7 +35,7 @@ Focus on actionable insights related to: {task}"""
     agent_message = f"📊 Analyst: I've completed the analysis.\n\nTop insights:\n{analysis[:400]}..."
     
     return {
-        "messages": [AIMessage(content=agent_message)],
+        
         "analysis": analysis,
         "next_agent": "supervisor"
     }

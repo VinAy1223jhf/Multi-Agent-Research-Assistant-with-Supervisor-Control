@@ -26,7 +26,7 @@ from agents.writing_agent import writer_agent
 os.environ["GROQ_API_KEY"]=os.getenv("GROQ_API_KEY")
 
 
-llm = ChatGroq(model="meta-llama/llama-4-scout-17b-16e-instruct")
+llm = ChatGroq(model="llama-3.1-8b-instant")
 
 
 # ===================================
@@ -125,24 +125,25 @@ def get_conversation(site_id: str):
 
 # lets now create a function to run the graph with a given task
 def run_task(task: str, site_id: str) -> str:
-    """
-    Runs the multi-agent system using LangGraph memory.
-    Memory is tracked per site_id (thread_id).
-    """
-
     result = graph.invoke(
         {
             "messages": [HumanMessage(content=task)],
-            "current_task": task
+            "current_task": task,
+
+            # 🔥 RESET THESE
+            "task_complete": False,
+            "next_agent": "supervisor",
+            "research_data": "",
+            "analysis": "",
+            "final_report": ""
         },
         config={
-            "configurable": {
-                "thread_id": site_id   # ✅ correct place
-            }
+            "thread_id": site_id
         }
     )
-    # print("Final result from graph:", result.get("final_report"))
+
     return result.get("final_report", "No report generated.")
+
 
 
 

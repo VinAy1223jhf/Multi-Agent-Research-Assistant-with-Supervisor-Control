@@ -27,9 +27,9 @@ Analysis:
 
     final_report = f"""
 📄 FINAL REPORT
-Generated on: {datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
 {'='*50}
-Topic: {task}
+Generated on: {datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
+
 {'='*50}
 
 {report}

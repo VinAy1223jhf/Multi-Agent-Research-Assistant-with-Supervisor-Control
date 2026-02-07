@@ -33,22 +33,22 @@ def supervisor_agent(state: SupervisorState,llm) -> Dict:
     # Determine next agent
     if "done" in decision_text or has_report:
         next_agent = "end"
-        supervisor_msg = "✅ Supervisor: All tasks complete! Great work team."
+        # supervisor_msg = "✅ Supervisor: All tasks complete! Great work team."
     elif "researcher" in decision_text or not has_research:
         next_agent = "researcher"
-        supervisor_msg = "📋 Supervisor: Let's start with research. Assigning to Researcher..."
+        # supervisor_msg = "📋 Supervisor: Let's start with research. Assigning to Researcher..."
     elif "analyst" in decision_text or (has_research and not has_analysis):
         next_agent = "analyst"
-        supervisor_msg = "📋 Supervisor: Research done. Time for analysis. Assigning to Analyst..."
+        # supervisor_msg = "📋 Supervisor: Research done. Time for analysis. Assigning to Analyst..."
     elif "writer" in decision_text or (has_analysis and not has_report):
         next_agent = "writer"
-        supervisor_msg = "📋 Supervisor: Analysis complete. Let's create the report. Assigning to Writer..."
+        # supervisor_msg = "📋 Supervisor: Analysis complete. Let's create the report. Assigning to Writer..."
     else:
         next_agent = "end"
-        supervisor_msg = "✅ Supervisor: Task seems complete."
+        # supervisor_msg = "✅ Supervisor: Task seems complete."
     
     return {
-        "messages": [AIMessage(content=supervisor_msg)],
+        "messages": [],
         "next_agent": next_agent,
         "current_task": task
     }
